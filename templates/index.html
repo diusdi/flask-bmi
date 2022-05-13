@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zxx">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="seo & digital marketing" />
+    <meta name="keywords" content="marketing,digital marketing,creative, agency, startup,promodise,onepage, clean, modern,seo,business, company" />
+    <meta name="author" content="Themefisher.com" />
+
+    <title>Kalkulator BMI</title>
+    <!-- bootstrap.min css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.css') }}" />
+    <!-- Icofont Css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='all.css') }}" />
+    <!-- animate.css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='animate.css') }}" />
+    <!-- Icofont -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='icofont.css') }}" />
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  </head>
+
+  <body data-spy="scroll" data-target=".fixed-top">
+    <div class="banner-area banner-2 bg-primary">
+      <div class="d-table">
+        <div class="d-table-cell">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-8 m-auto text-center col-sm-12 col-md-12">
+                <div class="banner-content content-padding">
+                  <h5 class="subtitle bg-success">KALKULATOR BMI</h5>
+                  <div class="card">
+                    <div class="card-header">Mari Hitung BMI</div>
+                    <div class="card-body">
+                      <form action="/" method="post">
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">Tinggi</label>
+                          <input type="text" class="form-control" id="exampleInputEmail1" name="tinggi" aria-describedby="emailHelp" placeholder="Masukan Tinggi (cm)" />
+                        </div>
+                        <div class="form-group">
+                          <label for="exampleInputPassword1">Berat</label>
+                          <input type="text" class="form-control" id="exampleInputPassword1" name="berat" placeholder="Masukkan Berat(Kg)" />
+                        </div>
+                        {%if bmi%}
+                        <div class="alert alert-primary" role="alert">NILAI BMI ANDA ADALAH: {{ bmi }}</div>
+                        {%endif%} {%if info[1]<=2%}
+                        <div class="alert alert-danger" role="alert">Kategori {{ info[0] }}</div>
+                        {%elif info[1]<=4 or info[1]==6%}
+                        <div class="alert alert-warning" role="alert">Kategori {{ info[0] }}</div>
+                        {%else%}
+                        <div class="alert alert-success" role="alert">Kategori {{ info[0] }}</div>
+                        {%endif%}
+                        <button type="submit" class="btn btn-success">Hitung</button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--MAIN HEADER AREA END -->
+  </body>
+</html>
